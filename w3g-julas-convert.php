@@ -54,7 +54,7 @@ function convert_game_type($value) {
 	return $value;
 }
 
-function convert_color($value) {
+function convert_color($value, $major_v) {
 	switch ($value) {
 		case 0: $value = 'red'; break;
 		case 1: $value = 'blue'; break;
@@ -68,12 +68,24 @@ function convert_color($value) {
 		case 9: $value = 'lightBlue'; break;
 		case 10: $value = 'darkgreen'; break;
 		case 11: $value = 'brown'; break;
-		case 12: $value = 'observer'; break;
+		case 12: $value = $major_v >= 29 ? 'maroon' : 'observer'; break;
+		case 13: $value = 'navy'; break;
+		case 14: $value = 'turquoise'; break;
+		case 15: $value = 'violet'; break;
+		case 16: $value = 'wheat'; break;
+		case 17: $value = 'peach'; break;
+		case 18: $value = 'mint'; break;
+		case 19: $value = 'lavender'; break;
+		case 20: $value = 'coal'; break;
+		case 21: $value = 'snow'; break;
+		case 22: $value = 'emerald'; break;
+		case 23: $value = 'peanut'; break;
+		case 24: $value = 'observer'; break;
 	}
 	return $value;
 }
 
-function convert_color_html($value) {
+function convert_color_html($value, $major_v) {
   switch ($value) {
 		case 0: return '#D93636'; break;
 		case 1: return '#608FBF'; break;
@@ -87,7 +99,19 @@ function convert_color_html($value) {
 		case 9: return '#79C2F2'; break;
 		case 10: return '#59B365'; break;
 		case 11: return '#BF8F60'; break;
-		case 12: return '#FFFFFF'; break;
+		case 12: return $major_v >= 29 ? '#800000' : '#FFFFFF'; break;
+		case 13: return '#000080'; break;
+		case 14: return '#43C6DB'; break;
+		case 15: return '#8D38C9'; break;
+		case 16: return '#F5DEB3'; break;
+		case 17: return '#FFDAB9'; break;
+		case 18: return '#98FF98'; break;
+		case 19: return '#E6E6FA'; break;
+		case 20: return '#374341'; break;
+		case 21: return '#FFFAFA'; break;
+		case 22: return '#50C878'; break;
+		case 23: return '#7A4434'; break;
+		case 24: return '#FFFFFF'; break;
   }
   return $value;
 }

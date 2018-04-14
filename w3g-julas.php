@@ -280,8 +280,8 @@ class replay {
 			}
 			
 			if ($temp['slot_status'] == 2) { // do not add empty slots
-				$temp['color_html'] = convert_color_html($temp['color']);
-				$temp['color'] = convert_color($temp['color']);
+				$temp['color_html'] = convert_color_html($temp['color'], $header['major_v']);
+				$temp['color'] = convert_color($temp['color'], $header['major_v']);
 				$temp['race'] = convert_race($temp['race']);
 				$temp['ai_strength'] = convert_ai($temp['ai_strength']);
 				
