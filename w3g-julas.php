@@ -174,14 +174,14 @@ class replay {
 		$this->data = substr($this->data, $i+1);
 	
 	
-		if (ord($this->data{0}) == 1) { // custom game
-			$this->data = substr($this->data, 2);
-		} elseif (ord($this->data{0}) == 8) { // ladder game
+		if (ord($this->data{0}) == 8) { // ladder game
 			$this->data = substr($this->data, 1);
 			$temp = unpack('Vruntime/Vrace', $this->data);
 			$this->data = substr($this->data, 8);
 			$this->players[$player_id]['exe_runtime'] = $temp['runtime'];
 			$this->players[$player_id]['race'] = convert_race($temp['race']);
+		} else { 
+			$this->data = substr($this->data, ord($this->data{0}) + 1);
 		}
 		if ($this->parse_actions) {
 			$this->players[$player_id]['actions'] = 0;
@@ -989,6 +989,12 @@ class replay {
 	}
 	
 	function cleanup() {
+		if ($this->header['major_v'] < 29) {
+			$totalPlayers = 12;
+		} else {
+			$totalPlayers = 24;
+		}
+
 		// players time cleanup
 		foreach ($this->players as $player) {
 			if (!$player['time']) {
@@ -999,8 +1005,8 @@ class replay {
 		// counting apm
 		if ($this->parse_actions) {
 			foreach ($this->players as $player_id=>$info) {
-				// whole team 12 are observers/referees
-				if ($this->players[$player_id]['team'] != 12 && $this->players[$player_id]['computer'] == 0) {
+				// whole team 12/24 are observers/referees
+				if ($this->players[$player_id]['team'] != $totalPlayers && $this->players[$player_id]['computer'] == 0) {
 					$this->players[$player_id]['apm'] = $this->players[$player_id]['actions'] / $this->players[$player_id]['time'] * 60000;
 				}
 			}
@@ -1024,14 +1030,14 @@ class replay {
 		$loser = strlen($this->game['loser_team']);
 		if (!$winner && $loser) {
 			foreach ($this->teams as $team_id=>$info) {
-				if ($team_id != $this->game['loser_team'] && $team_id != 12) {
+				if ($team_id != $this->game['loser_team'] && $team_id != $totalPlayers) {
 					$this->game['winner_team'] = $team_id;
 					break;
 				}
 			}
 		} elseif (!$loser && $winner) {
 			foreach ($this->teams as $team_id=>$info) {
-				if ($team_id != $this->game['winner_team'] && $team_id != 12) {
+				if ($team_id != $this->game['winner_team'] && $team_id != $totalPlayers) {
 					$this->game['loser_team'] = $team_id;
 					break;
 				}
