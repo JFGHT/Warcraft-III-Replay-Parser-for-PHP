@@ -6,8 +6,17 @@ You can find the old version here: http://w3rep.sourceforge.net/
 
 Couldn't be possible without the help of: http://w3g.deepnode.de/
 
+# Current supported w3 version
 
-TODO
+1.29
+
+# Changelog
+
+https://github.com/JFGHT/Warcraft-III-Replay-Parser-for-PHP/blob/master/CHANGELOG.md
+
+
+# TODO
+
 - add map checksum
 - add traded resources
 - prevent alien heroes (skills chosen by team mates)?
