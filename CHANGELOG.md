@@ -1,3 +1,8 @@
+2.5 (01.06.18) - WAR 1.29
+- fixed: updated colors for the new 24 players.
+- fixed: global total players in cleanup function.
+- fixed: bug parsing custom games.
+
 2.4 (07.08.10)
 - fixed: handling of 0x54 command block (problems with some custom map replays, thanks to Mike Plichta)
 - fixed: handling of 0x60 action (resulting in less errors in DOTA replays)
