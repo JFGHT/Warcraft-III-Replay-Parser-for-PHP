@@ -21,6 +21,7 @@ https://github.com/JFGHT/Warcraft-III-Replay-Parser-for-PHP/blob/master/CHANGELO
 - add traded resources
 - prevent alien heroes (skills chosen by team mates)?
 - winner detection needs some improvements (it isn't 100% correct)
-- counting units needs to be checked (duplicate actions, multiple buildings under one hotkey, ESC pressed) investigate 0x19 select subgroup thoroughly, also regarding unit_multiplier add APM chart (mb as another variable in the class, e.g. $replay->apmchart, mime-type: image/png; http://evoluted.net/community/code/imageeditor.php ?)
+- counting units needs to be checked (duplicate actions, multiple buildings under one hotkey, ESC pressed)
+- investigate 0x19 select subgroup thoroughly, also regarding unit_multiplier add APM chart (mb as another variable in the class, e.g. $replay->apmchart, mime-type: image/png; http://evoluted.net/community/code/imageeditor.php ?)
 - add players' starting positions on the map image?
 - possibly DOTA support (http://shadowflare.samods.org/cgi-bin/yabb/YaBB.cgi?board=dev;action=display;num=1186677656 ?) (http://forums.dota-allstars.com/index.php?showtopic=181408)
