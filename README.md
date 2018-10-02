@@ -8,7 +8,7 @@ Couldn't be possible without the help of: http://w3g.deepnode.de/
 
 # Current supported w3 version
 
-1.29
+1.30.1
 
 # Changelog
 
